@@ -1,0 +1,32 @@
+.modal-content{
+    top:250%;
+    width:25%;
+    position: absolute;
+    background: #6bb5d6; 
+    color:#000;
+    margin-left: 40%;
+   
+}
+.signUp-header{
+   margin-left: 2%;
+}
+button.close:hover , button.close:focus{
+    opacity: 2 !important;
+}
+.signUp-button{
+    margin-left: 20%;
+    padding: 6px 20% !important;
+}
+.signUp-close{
+    background: #F84B3F !important;
+    color:white !important;
+}
+
+.modal-header{
+    text-align: center;
+}
+
+.forget-pwd>a{
+    text-decoration: none;
+    color:#337ab7;
+}
