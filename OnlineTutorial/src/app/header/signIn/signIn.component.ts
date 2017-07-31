@@ -15,13 +15,16 @@ export class SignIn {
  constructor(private _dataParserService: DataParserService) {}
 
  private checkSignIn(){
-   let staus:any;
-  /* let status:any= */this._dataParserService.SignIn(this.email,this.pwd).subscribe(data=>this.status=data,
-                                                                              error=>alert("error"),
-                                                                            ()=>console.log('finish'));
-  if(status=== "OK"){
-    this.Close();
-  }
+   this._dataParserService.SignIn(this.email,this.pwd)
+                      .subscribe(data=>{
+                                        this.status=data;
+                                        if(this.status=="OK"){
+                                            this.Close();
+                                        }
+                                       },
+                                 error=>alert("error"),
+                                 ()=>console.log('finish')
+                                );
  }
 
  private Close(){
