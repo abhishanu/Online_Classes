@@ -6,6 +6,8 @@ import { FormsModule }   from '@angular/forms';
 import{Header} from './header/header.component';
 import {SignUp} from './header/signUp/signUp.component';
 import {SignIn} from './header/signIn/signIn.component';
+import {ForgetPassword} from './header/signIn/forget-password/forget_password.component';
+
 
 import{DataParserService} from './services/dataParser.service';
 import { AppComponent } from './app.component';
@@ -15,7 +17,8 @@ import { AppComponent } from './app.component';
     AppComponent,
     Header,
     SignUp,
-    SignIn
+    SignIn,
+    ForgetPassword
   ],
   imports: [
     BrowserModule,

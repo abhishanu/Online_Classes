@@ -17,10 +17,19 @@ export class SignUp {
    constructor(private _dataParserService: DataParserService) {} 
 
    private SubmitForm(){
-      this._dataParserService.SignUp(this.name,this.email,this.phone,this.pwd);
+     let status:any;
+      this._dataParserService.SignUp(this.name,this.email,this.phone,this.pwd)
+      .subscribe(data=>{
+                        status=data;
+                        if(status=="success"){
+                          this.Close();
+                        }
+                      },
+                 error=>alert("error"),
+                 ()=>console.log('finish')
+                );
    }
   private Close(){
     this._dataParserService.signUp=false;
   }
- 
 }

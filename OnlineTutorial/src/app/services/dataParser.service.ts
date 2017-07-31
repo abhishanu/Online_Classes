@@ -8,6 +8,9 @@ export class DataParserService {
     public testdata;
     public signUp:boolean=false;
     public signIn:boolean=false;
+    public authorized:any=false;
+    public ForgetPwd:boolean=false;
+    
     constructor(private _http:Http){}
     
     SignIn(email,pwd){
@@ -19,27 +22,26 @@ export class DataParserService {
           return this._http
             .post('http://localhost/OnlineTutorial/select.php', data)
             .map(res=>{signInstatus=res.json();return signInstatus;}) 
-             
-             /*  .subscribe(res =>{ this.testdata = res.json();return this.testdata; });   */
-            /*  return this.testdata;   */
     }
     
 
     SignUp(name,email,phone,pwd){
-         //var body = 'username=name&email=email&phone=phone&mypassword=pwd';
+         let signUpstatus:any;
          let data = new URLSearchParams();
          data.append('uname', name);
          data.append('email', email);
          data.append('phone', phone);
          data.append('pwd', pwd);
-        this._http
+         return this._http
             .post('http://localhost/OnlineTutorial/insert.php', data)
-            /* .map(()=>""); */
-              /* .subscribe(res => {
-                    alert('ok');
-            }, error => {
-                console.log(error.json()); 
-            }); */ 
-            .subscribe(res => this.testdata = res.json());
-    }      
+           .map(res=>{signUpstatus=res.json();return signUpstatus;}) 
+    }  
+    
+    changePassword(){
+
+    }
+    
+    userData(){
+
+    }
 }
