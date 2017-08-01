@@ -20,15 +20,8 @@
 	$sql="INSERT INTO signup_details(`Id`, `Name`, `Email`, `Pwd`, `Contact`) VALUES ('$Id','$uname','$email','$pwd','$phone')";
 	
 	if(true){
-		$result=$conn->query($sql);
-		if($result == true){
-			$data="success";
-		}
-		else{
-			$data="failure";
-		}
+		$qry=$conn->query($sql);
 	}
 	
-	echo json_encode($data);
 	$conn->close();
 ?>
