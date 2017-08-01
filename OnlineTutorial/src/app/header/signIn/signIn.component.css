@@ -27,6 +27,7 @@ button.close:hover , button.close:focus{
 }
 
 .forget-pwd>a{
+   
     text-decoration: none;
     color:#337ab7;
 }

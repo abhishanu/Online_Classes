@@ -28,7 +28,7 @@
     .navbar-right>li .signup:focus,.navbar-right>li .signup:hover{
           border-radius:5px;
           background-color:#5cb85c;
-          color: #ddd !important;
+          /* color: #ddd !important; */
           
     }
     
@@ -38,4 +38,8 @@
           color: #ddd !important;
          
     }
-        
+    
+    .Username:hover{
+         border-radius:5px;
+         font-size: 1.2em;
+    }

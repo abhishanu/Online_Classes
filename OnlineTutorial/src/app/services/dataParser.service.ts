@@ -10,6 +10,7 @@ export class DataParserService {
     public signIn:boolean=false;
     public authorized:any=false;
     public ForgetPwd:boolean=false;
+    public username:any='User';
     
     constructor(private _http:Http){}
     

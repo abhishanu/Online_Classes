@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {DataParserService} from '../../services/dataParser.service';
 import {ForgetPassword} from './forget-password/forget_password.component';
 import { FormsModule }   from '@angular/forms';
@@ -8,7 +8,7 @@ import { FormsModule }   from '@angular/forms';
   templateUrl: './signIn.component.html',
   styleUrls: ['./signIn.component.css']
 })
-export class SignIn {
+export class SignIn implements OnInit {
  private email:any;
  private pwd:any;
  public status:any;
@@ -16,12 +16,20 @@ export class SignIn {
  
  constructor(private _dataParserService: DataParserService) {}
 
+ ngOnInit(){
+
+ }
  private checkSignIn(){
+   let checkBox:any;
+   checkBox =document.getElementById("checkbox");
+   //checkBox.checked;
+   
    this._dataParserService.SignIn(this.email,this.pwd)
                       .subscribe(data=>{
                                         this.status=data;
-                                        if(this.status=="OK"){
+                                        if(this.status!="User"){
                                             this._dataParserService.authorized=true;
+                                            this._dataParserService.username=this.status;
                                             this.Close();
                                         }
                                        },

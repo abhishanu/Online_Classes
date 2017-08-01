@@ -22,4 +22,7 @@ export class Header {
      this._dataParserService.signUp=!this._dataParserService.signUp;
      this._dataParserService.signIn=false;
   }
+  public UserProfile(){
+    alert("Data loading....");
+  }
 }

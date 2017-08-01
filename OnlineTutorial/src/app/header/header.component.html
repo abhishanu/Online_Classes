@@ -28,6 +28,11 @@
         <li><a href="#" (click)="signUpFunc()" class="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#" (click)="signInFunc()" class="signin"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right" *ngIf="this._dataParserService.authorized">
+        <li><a href="#" (click)="UserProfile()" class="Username"><span class="glyphicon glyphicon-user"></span> Welcome {{this._dataParserService.username}}</a></li>
+        
+        </ul>
     
   </div>
       
