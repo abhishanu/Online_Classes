@@ -24,7 +24,7 @@
                             <input type="password" class="form-control" id="pwd" placeholder="Enter password" [(ngModel)]="pwd">
                         </div>
                     </div>
-                    <input type="checkbox" checked="checked" id="checkbox"> Remember me
+                    <input type="checkbox" [checked]="isSignInChecked" id="checkbox" (click)="rememberMe()"> Remember me
                     <div class="forget-pwd">
                         <a href='javascript:void(0)' (click)="forgetPassword()">Forget password?</a>
                     </div>

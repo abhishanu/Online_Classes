@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {DataParserService} from '../../services/dataParser.service';
 import{SessionStorageService} from '../../services/sessionMaintain.service';
-import {ForgetPassword} from './forget-password/forget_password.component';
+import {ResetPassword} from './reset-password/reset_password.component';
 import { FormsModule }   from '@angular/forms';
 
 @Component({
@@ -13,16 +13,16 @@ export class SignIn implements OnInit {
  private email:any;
  private pwd:any;
  public status:any;
- 
+ public isSignInChecked:boolean;
  
  constructor(private _dataParserService: DataParserService,private _sessionStorage:SessionStorageService) {}
 
- ngOnInit(){ }
+ ngOnInit(){ 
+   this.email=this._sessionStorage.getRememberUserName();
+ }
  
  private checkSignIn(){
-   let checkBox:any;
-   checkBox =document.getElementById("checkbox");
-   //checkBox.checked;
+   var that=this;
    
    this._dataParserService.SignIn(this.email,this.pwd)
                       .subscribe(data=>{
@@ -31,6 +31,12 @@ export class SignIn implements OnInit {
                                             this._dataParserService.authorized=true;
                                             //this._dataParserService.username=this.status;
                                             this._sessionStorage.setUsername(this.status);
+                                            if(this.isSignInChecked){
+                                              this._sessionStorage.setRememberUserName(that.email);
+                                            }
+                                            else{
+                                              this._sessionStorage.rememberMeFalse();
+                                            }
                                             this.Close();
                                         }
                                        },
@@ -42,6 +48,10 @@ export class SignIn implements OnInit {
  private forgetPassword(){
    this._dataParserService.ForgetPwd=true;
    this.Close();
+ }
+
+ private rememberMe(){
+   this.isSignInChecked=!(this.isSignInChecked);
  }
  private Close(){
    this._dataParserService.signIn=false;

@@ -3,11 +3,11 @@ import {DataParserService} from '../../../services/dataParser.service';
 import { FormsModule }   from '@angular/forms';
 
 @Component({
-  selector: 'forget-pwd-form',
-  templateUrl: './forget_password.component.html',
-  styleUrls: ['./forget_password.component.css']
+  selector: 'reset-pwd-form',
+  templateUrl: './reset_password.component.html',
+  styleUrls: ['./reset_password.component.css']
 })
-export class ForgetPassword implements OnInit {
+export class ResetPassword implements OnInit {
   public pwd:any;
   public new_pwd:any;
   public re_pwd:any;

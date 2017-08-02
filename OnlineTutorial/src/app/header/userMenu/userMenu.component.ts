@@ -22,7 +22,12 @@ export class UserMenu implements OnInit {
       
   }
   public UserProfile(){
-    alert("Data loading....");
+   // alert("Data loading....");
+  }
+
+  public signOut(){
+    this._sessionStorage.signOut();
+    this._dataParserService.resetData();
   }
   
      

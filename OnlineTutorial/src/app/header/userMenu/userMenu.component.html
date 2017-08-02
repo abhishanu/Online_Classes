@@ -1,6 +1,38 @@
+
 <div (mouseover)="userMenuDetail()">
-    <a href="javascript:void(0)" (click)="UserProfile()" class="UserMenu"><span class="glyphicon glyphicon-user"></span>
-       Welcome {{this._sessionStorage.getUsername()}}
-    </a>
-     
+    
+     <li class="dropdown">
+       <!--  <a href="javascript:;" class="dropdown-toggle" >
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>  -->   
+        <a href="javascript:void(0)" (click)="UserProfile()" class="UserMenu dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span>
+                Welcome {{this._sessionStorage.getUsername()}}
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="javascript:;">Profile</a>
+            </li>
+            <li>
+                <a href="javascript:;">Courses</a>
+            </li>
+            <li> 
+                <a href="javascript:;">Change Password</a>
+            </li>
+            <li>
+                <a href="javascript:;">History</a>
+            </li>
+            <li>
+                <a href="javascript:;">Refer</a>
+            </li>
+            <li>
+                <a href="javascript:;">Bonus Points</a>
+            </li>
+            
+                 <li>
+                     <a href="javascript:void(0)" (click)="signOut()"><span class="glyphicon glyphicon-off"></span>&nbsp;Signout</a>
+                </li>
+            
+        </ul>
+    </li>
 </div>

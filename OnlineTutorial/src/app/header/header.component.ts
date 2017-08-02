@@ -26,11 +26,13 @@ export class Header implements OnInit {
    private signInFunc(){
     this._dataParserService.signIn=!this._dataParserService.signIn;
     this._dataParserService.signUp=false;
+    this._dataParserService.ForgetPwd=false;
   }
 
   private signUpFunc(){
      this._dataParserService.signUp=!this._dataParserService.signUp;
      this._dataParserService.signIn=false;
+     this._dataParserService.ForgetPwd=false;
   }
   
 }

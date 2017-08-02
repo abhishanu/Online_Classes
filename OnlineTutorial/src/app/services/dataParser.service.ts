@@ -45,4 +45,10 @@ export class DataParserService {
     userData(){
 
     }
+
+    resetData(){
+        this.signUp=false;
+        this.signIn=false;
+        this.authorized=false;
+    }
 }

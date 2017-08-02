@@ -11,4 +11,21 @@ export class SessionStorageService {
     getUsername(){
         return sessionStorage.getItem('username');
     }
+
+    signOut(){
+        sessionStorage.clear();
+    }
+
+    setRememberUserName(name){
+        localStorage.setItem('username',name);
+    }
+
+    getRememberUserName(){
+        return localStorage.getItem('username');
+    }
+
+    rememberMeFalse(){
+        localStorage.clear();
+    }
+    
 }
