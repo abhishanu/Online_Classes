@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import {DataParserService} from '../../services/dataParser.service';
+import{SessionStorageService} from '../../services/sessionMaintain.service';
 import {ForgetPassword} from './forget-password/forget_password.component';
 import { FormsModule }   from '@angular/forms';
 
@@ -14,11 +15,10 @@ export class SignIn implements OnInit {
  public status:any;
  
  
- constructor(private _dataParserService: DataParserService) {}
+ constructor(private _dataParserService: DataParserService,private _sessionStorage:SessionStorageService) {}
 
- ngOnInit(){
-
- }
+ ngOnInit(){ }
+ 
  private checkSignIn(){
    let checkBox:any;
    checkBox =document.getElementById("checkbox");
@@ -29,7 +29,8 @@ export class SignIn implements OnInit {
                                         this.status=data;
                                         if(this.status!="User"){
                                             this._dataParserService.authorized=true;
-                                            this._dataParserService.username=this.status;
+                                            //this._dataParserService.username=this.status;
+                                            this._sessionStorage.setUsername(this.status);
                                             this.Close();
                                         }
                                        },

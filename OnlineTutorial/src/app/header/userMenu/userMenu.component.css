@@ -1,0 +1,9 @@
+.UserMenu{
+     padding-right: 15px;
+}
+.UserMenu:hover{
+    border-radius:5px;
+    font-size: 1.2em;
+    padding-right: 15px;
+    text-decoration: none;
+}
