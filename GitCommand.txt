@@ -1,0 +1,17 @@
+run all commands in master directory
+
+to create new git directory
+git clone <git path>
+
+command to pull-
+git pull 
+commands to add -
+
+git add --all
+
+command to commit -
+git commit -m "<<type comment here>"
+
+command to push
+git push
+give user id & password
