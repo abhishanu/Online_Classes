@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit  } from '@angular/core';
 import {DataParserService} from '../services/dataParser.service';
+import{SessionStorageService} from '../services/sessionMaintain.service';
 import { FormsModule }   from '@angular/forms';
 import {SignUp} from './signUp/signUp.component';
 import {SignIn} from './signIn/signIn.component';
@@ -9,9 +10,18 @@ import {SignIn} from './signIn/signIn.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class Header {
+export class Header implements OnInit {
   
-   constructor(private _dataParserService: DataParserService) {} 
+    ngOnInit() {
+     var username= this._sessionStorage.getUsername();
+     if(username){
+        this._dataParserService.authorized=true;
+        this._dataParserService.signIn=false;
+        this._dataParserService.signUp=false;
+     }
+    }
+    
+   constructor(private _dataParserService: DataParserService,private _sessionStorage:SessionStorageService) {} 
 
    private signInFunc(){
     this._dataParserService.signIn=!this._dataParserService.signIn;
@@ -22,7 +32,5 @@ export class Header {
      this._dataParserService.signUp=!this._dataParserService.signUp;
      this._dataParserService.signIn=false;
   }
-  public UserProfile(){
-    alert("Data loading....");
-  }
+  
 }
