@@ -45,5 +45,25 @@ class CommonFunctions
         }
 	}
 	
+	function getEditProfileInfo()
+	{
+		try
+		{
+			$query	=	$this->dbh->prepare("SELECT * FROM student_details WHERE Id=1");
+			
+			$query->execute();
+			
+			// for more than one records used fetchAll
+			// for single row data use fetch
+			$resData	=	$query->fetch(PDO::FETCH_ASSOC);
+			
+			return $resData;
+		}
+		catch(PDOException $e)
+		{
+			return $e->getMessage();
+		}
+	}
+	
 }
 ?>

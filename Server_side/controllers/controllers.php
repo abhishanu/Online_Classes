@@ -20,6 +20,14 @@ else
 			echo $res;
 			
 		break;
+		
+		case 'getEditProfileInfo':
+		
+			$res = $CommonFunctions->getEditProfileInfo();
+			// here json string without index for single row data which is also called json object
+			echo json_encode($res);
+			
+			break;
 			
 	}
 			

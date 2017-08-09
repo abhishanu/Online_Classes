@@ -1,17 +1,16 @@
-
 <div (mouseover)="userMenuDetail()">
     
      <li class="dropdown">
        <!--  <a href="javascript:;" class="dropdown-toggle" >
             <span class="glyphicon glyphicon-cog"></span>
         </a>  -->   
-        <a href="javascript:void(0)" (click)="UserProfile()" class="UserMenu dropdown-toggle" data-toggle="dropdown">
+        <a href="javascript:void(0)" class="UserMenu dropdown-toggle" data-toggle="dropdown">
             <span class="glyphicon glyphicon-user"></span>
                 Welcome {{this._sessionStorage.getUsername()}}
         </a>
         <ul class="dropdown-menu" role="menu">
             <li>
-                <a href="javascript:;">Profile</a>
+                <a (click)="editProfile()" href="javascript:;">Profile</a>
             </li>
             <li>
                 <a href="javascript:;">Courses</a>
@@ -36,3 +35,72 @@
         </ul>
     </li>
 </div>
+
+<!-- Modal -->
+<div id="profileModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="color:black;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Profile</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="col-sm-12" id="EditProfileDiv">
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2" for="Name">Name:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control name blnk" id="name" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_name"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2" for="Email">Email:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control blnk eMail" id="email" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_email"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2">Contact:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control blnk" id="contact" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_email"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2">User Id:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control blnk" id="userId" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_email"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2">Bookmarks:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control blnk" id="bookmarks" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_email"></div>
+                </div>
+                <div class="msgDiv text-center col-sm-12 text-danger"></div>
+            </form> 
+        </div>
+      </div>
+
+      <div class="modal-footer">
+          <button type="button" id="saveProfileBtn" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+

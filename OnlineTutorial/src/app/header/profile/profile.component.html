@@ -1,0 +1,35 @@
+<div class="row">
+
+    <div id="EditProfileContainer" class="col-sm-12 contentDiv" style="margin-top:5%;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 commonStyle" id="EditProfileDiv">
+            <h3 class="text-center">Edit Profile</h3>
+            <div class="clearfix"></div>
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2" for="Name">Name:</label>
+                    <div class="col-sm-7">
+                        <input maxlength="40" type="text" class="form-control name blnk" id="nameInput" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_name"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-1"></label>
+                    <label class="control-label col-sm-2" for="Email">Email:</label>
+                    <div class="col-sm-7">
+                        <input maxlength="40" type="text" class="form-control blnk eMail" id="email" value="">
+                    </div>
+                    <div class="col-sm-2" id="err_email"></div>
+                </div>  
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-7">
+                        <button type="button" id="saveProfileBtn" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+                <div class="msgDiv text-center col-sm-12 text-danger"></div>
+            </form> 
+        </div>
+        <div class="col-sm-2"></div>	
+    </div>
+</div>

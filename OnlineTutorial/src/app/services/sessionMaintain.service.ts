@@ -12,6 +12,20 @@ export class SessionStorageService {
         return sessionStorage.getItem('username');
     }
 
+    setUserEmail(email){
+        sessionStorage.setItem('userEmail', email);
+    }
+    getUserEmail(){
+        return sessionStorage.getItem('userEmail');
+    }
+
+    setUserContact(contact){
+        sessionStorage.setItem('userContact', contact);
+    }
+    getUserContact(){
+        return sessionStorage.getItem('userContact');
+    }
+
     signOut(){
         sessionStorage.clear();
     }
@@ -22,6 +36,13 @@ export class SessionStorageService {
 
     getRememberUserName(){
         return localStorage.getItem('username');
+    }
+
+    setUserId(id){
+        sessionStorage.setItem('userId', id);
+    }
+    getUserId(){
+        return sessionStorage.getItem('userId');
     }
 
     rememberMeFalse(){

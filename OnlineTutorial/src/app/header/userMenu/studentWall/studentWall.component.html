@@ -1,0 +1,338 @@
+<style>
+.bookmarkBox
+{
+    background-color:#fff;
+    border:1px solid #999;
+    cursor: pointer;
+}
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
+
+.offer-pg-cont{
+    width: 100%;
+    overflow-x: auto;
+    margin: 0px;
+}
+span.arrow-left,span.arrow-right{
+    display: block;
+    position: absolute;
+    background-color: #555;
+    top: 40px;
+    color:white;
+    z-index: 2;
+    cursor: pointer;
+}
+span.arrow-left{
+    left: 0px;
+    top:170px;
+}
+span.arrow-right{
+    right: -5px;
+    top:170px;
+}
+span.arrow-left:hover,.offer-pg span.arrow-right:hover{
+    background-color: #333;
+}
+.offer-pg{
+    min-width: 1300px;
+    overflow-x: auto;
+}
+.item-wrapper.offer-con{
+    background-color: #333 !important;
+}
+.offer-con .left-item h4 {
+    color: #fff;
+    font-weight: normal;
+    margin: 0px;
+}
+.offer-con .right-item{
+    float: right;
+    padding: 10px;
+}
+.offer-con .right-item h5{
+    color: #cb9944;
+    margin: 0px;
+    font-size: 14px;
+}
+.offer-pg > .portfolio-item{
+    width: 150px;
+    background-color:#fff;
+    border: 1px solid #999;
+    margin-left:10px;
+    float:left;
+}
+.fixedDiv
+.fixedDiv > .profilePic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+.fixedDiv{
+    display: block;
+    border:1px solid #000; 
+    margin-top: 11%;
+}
+.fixedImg{
+    width:116px;height:100px;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.label-Left
+{
+    text-align: left !important;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #D3D3D3;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.editIcon
+{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-top: 5px !important;
+}
+
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+}
+
+</style>
+
+<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1" style="margin-top:3.5%;min-height:700px;margin-bottom:2%;">
+
+    <div class="col-sm-12" id="EditProfileDiv" style="margin-top:1%;">
+        <h3>Personal Infomation</h3>
+        <div class="form-horizontal" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-1 label-Left" for="Name">Name:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control name blnk" id="nameInput"  [(ngModel)]="Studentname" [readonly]="readonlyName">
+                </div>
+                <div class="col-sm-1 editIcon">
+                    <i style="cursor:pointer;" class="glyphicon glyphicon-pencil" (click)="readonlyName=false">
+                    </i>
+                </div>
+                <div class="col-sm-3" id="err_nameInput"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-1 label-Left" for="Email">Email:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control blnk eMail" id="emailInput" [readonly]="readonlyEmail" [(ngModel)]="StudentEmail">
+                </div>
+                <div class="col-sm-1 editIcon">
+                    <i style="cursor:pointer;" class="glyphicon glyphicon-pencil" (click)="readonlyEmail=false">
+                    </i>
+                </div>
+                <div class="col-sm-2" id="err_emailInput"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-1 label-Left">Contact:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control blnk" id="contactInput" [readonly]="readonlyContact" [(ngModel)]="StudentContact">
+                </div>
+                <div class="col-sm-1 editIcon">
+                    <i style="cursor:pointer;" class="glyphicon glyphicon-pencil" (click)="readonlyContact=false">
+                    </i>
+                </div>
+                <div class="col-sm-2" id="err_contactInput"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-1 label-Left">User Id:</label>
+                <div class="col-sm-7">
+                    <input  [(ngModel)]="StudentId" type="text" readonly class="form-control blnk" id="userIdInput" value="">
+                </div>
+                <div class="col-sm-2" id="err_userIdInput"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+                    <button (click)="saveStudentProfile()" type="button" class="btn btn-success">Save Changes</button>
+                </div>
+            </div>
+            <div class="msgDiv text-center col-sm-12 text-danger"></div>
+        </div> 
+    </div>
+
+    <div class="clearfix"></div>
+    <hr>
+
+    
+<div class="container">
+    <div class="col-md-12">
+
+        <div class="well">
+            <div id="myCarousel" class="carousel slide">
+                
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="fixedDiv"><img class="fixedImg" src="assets/images/bookmark.gif"/></div>
+                                <p>Title</p>
+                                <p>Description</p>
+                                <p>Price</p>
+                                <p class="text-center">
+                                    <a data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                                </p>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                </div>
+                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+            <!--/myCarousel-->
+        </div>
+        <!--/well-->
+    </div>
+</div>
+
+
+    <!--<div class="col-sm-12" id="bookmarksDiv">
+        <h3>Bookmarks</h3>
+        
+        <span class='arrow-left glyphicon glyphicon-chevron-left'></span>
+        <span class='arrow-right glyphicon glyphicon-chevron-right'></span>
+        <div class='row offer-pg-cont'>
+            <div class='offer-pg'>
+                
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/bookmark.gif"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/index.jpg"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/bookmark.gif"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/bookmark.gif"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/index.jpg"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/bookmark.gif"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                   <div class="fixedDiv"><img class="fixedImg" src="assets/images/index.jpg"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+                <div class="col-md-3 portfolio-item bookmarkBox">
+                    <div class="fixedDiv"><img class="fixedImg" src="assets/images/index.jpg"/></div>
+                    <p>Title</p>
+                    <p>Description</p>
+                    <p>Price</p>
+                    <p class="text-center">
+                        <a  data-placement="top" data-toggle="popover" title="Popover Header" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." href="javascript:;" class="text-primary detailsPopOver">View Details</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>-->
+

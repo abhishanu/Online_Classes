@@ -8,6 +8,7 @@ import {SignUp} from './header/signUp/signUp.component';
 import {SignIn} from './header/signIn/signIn.component';
 import {ResetPassword} from './header/signIn/reset-password/reset_password.component';
 import {UserMenu} from './header/userMenu/userMenu.component';
+import {StudentWall} from './header/userMenu/studentWall/studentWall.component';
 
 
 import{DataParserService} from './services/dataParser.service';
@@ -21,7 +22,8 @@ import { AppComponent } from './app.component';
     SignUp,
     SignIn,
     ResetPassword,
-    UserMenu
+    UserMenu,
+    StudentWall
   ],
   imports: [
     BrowserModule,

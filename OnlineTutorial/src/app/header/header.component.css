@@ -13,6 +13,7 @@
         background-color: #6bb5d6;
         border-color: #6bb5d6;
         border-radius: 0px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     }
    /*  .navbar-right>li>a:focus, .navbar-right>li>a:hover {
         background-color: transparent;

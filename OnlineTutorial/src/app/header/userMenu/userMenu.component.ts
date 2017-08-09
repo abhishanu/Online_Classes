@@ -3,6 +3,8 @@ import {DataParserService} from '../../services/dataParser.service';
 import{SessionStorageService} from '../../services/sessionMaintain.service';
 import { FormsModule }   from '@angular/forms';
 
+declare var $:any;
+
 @Component({
   selector: 'user-menu',
   templateUrl: './userMenu.component.html',
@@ -22,12 +24,17 @@ export class UserMenu implements OnInit {
       
   }
   public UserProfile(){
-   // alert("Data loading....");
+    
   }
 
   public signOut(){
     this._sessionStorage.signOut();
     this._dataParserService.resetData();
+  }
+
+  public editProfile()
+  {
+      this._dataParserService.showUserWall=true;  
   }
   
      

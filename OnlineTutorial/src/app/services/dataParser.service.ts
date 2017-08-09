@@ -11,6 +11,7 @@ export class DataParserService {
     public authorized:any=false;
     public ForgetPwd:boolean=false;
     public username:any='User';
+    public showUserWall:boolean=false;
     
     constructor(private _http:Http){}
     
@@ -20,9 +21,14 @@ export class DataParserService {
          data.append('email', email);
          data.append('pwd', pwd);
          
-          return this._http
-            .post('http://localhost/OnlineTutorial/select.php', data)
+          return this._http.post('http://localhost/OnlineTutorial/controllers/controllers.php?action=signIn',data)
+           /*  .post('', data) */
             .map(res=>{signInstatus=res.json();return signInstatus;}) 
+    }
+    
+    UserProfileData(){
+        this._http.post('http://localhost/OnlineTutorial/controllers/controllers.php?action=saveStudentProfile',{});
+
     }
     
 
@@ -50,5 +56,20 @@ export class DataParserService {
         this.signUp=false;
         this.signIn=false;
         this.authorized=false;
+        this.showUserWall=false;
     }
+
+    saveStudentInfo(name,email,contact,id){
+         let data = new URLSearchParams();
+         var signInstatus:any;
+         data.append('nameInput', name);
+         data.append('emailInput', email);
+         data.append('contactInput', contact);
+         data.append('id', id);
+         
+          return this._http.post('http://localhost/OnlineTutorial/controllers/controllers.php?action=saveStudentProfile',data)
+           /*  .post('', data) */
+            .map(res=>{signInstatus=res.json();return signInstatus;}) 
+    }
+
 }

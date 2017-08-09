@@ -23,16 +23,25 @@ export class SignIn implements OnInit {
  
  private checkSignIn(){
    var that=this;
-   
+   var localData;
    this._dataParserService.SignIn(this.email,this.pwd)
                       .subscribe(data=>{
-                                        this.status=data;
-                                        if(this.status!="User"){
+                                       localData=data;
+                                       //console.log(localData.Name);
+                                        if(localData == "-1")
+                                        {
+                                          
+                                        }
+                                        else
+                                        {
                                             this._dataParserService.authorized=true;
                                             //this._dataParserService.username=this.status;
-                                            this._sessionStorage.setUsername(this.status);
+                                            this._sessionStorage.setUsername(localData.Name);
+                                            this._sessionStorage.setUserEmail(localData.Email);
+                                            this._sessionStorage.setUserContact(localData.Contact);
+                                            this._sessionStorage.setUserId(localData.Id);
                                             if(this.isSignInChecked){
-                                              this._sessionStorage.setRememberUserName(that.email);
+                                              this._sessionStorage.setRememberUserName(localData.Email);
                                             }
                                             else{
                                               this._sessionStorage.rememberMeFalse();
