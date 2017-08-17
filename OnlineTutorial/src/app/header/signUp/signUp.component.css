@@ -27,3 +27,8 @@ button.close:hover , button.close:focus{
     text-decoration: none;
     color:#F84B3F;
 }
+
+.modal-title{
+    color: white;
+    text-align: center;
+}

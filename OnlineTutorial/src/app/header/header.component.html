@@ -1,22 +1,72 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Online Tutorial</a>
+      <a class="navbar-brand" href="javascript:;">Online Tutorial</a>
     </div>
     <ul class="nav navbar-nav header-tabs">
-      <li><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+      <li><a href="javascript:;">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">Categories<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
+          <li class="dropdown dropdown-submenu">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Development</a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Web Development</a></li>
+              <li><a href="javascript:;">Mobile Apps</a></li>
+              <li><a href="javascript:;">Programming Languages</a></li>
+              <li><a href="javascript:;">Game Development</a></li>
+              <li><a href="javascript:;">Databases</a></li>
+              <li><a href="javascript:;">Software Testing</a></li>
+              <li><a href="javascript:;">Software Engineering</a></li>
+              <li><a href="javascript:;">Development Tools</a></li>
+            </ul>
+          </li>
+          <li class="dropdown dropdown-submenu">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Business</a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Finance</a></li>
+              <li><a href="javascript:;">Entrepreneurship</a></li>
+              <li><a href="javascript:;">Communications</a></li>
+              <li><a href="javascript:;">Management</a></li>
+              <li><a href="javascript:;">Sales</a></li>
+              <li><a href="javascript:;">Strategy</a></li>
+            </ul>
+          </li>
+          <li class="dropdown dropdown-submenu">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">IT &amp; Software</a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">IT Certification</a></li>
+              <li><a href="javascript:;">Network &amp; Security</a></li>
+              <li><a href="javascript:;">Hardware</a></li>
+              <li><a href="javascript:;">Operating Systems</a></li>
+              <li><a href="javascript:;">Other</a></li>
+            </ul>
+          </li>
+          <li class="dropdown dropdown-submenu">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Design</a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Web Design</a></li>
+              <li><a href="javascript:;">Graphic Design</a></li>
+              <li><a href="javascript:;">Design Tools</a></li>
+              <li><a href="javascript:;">User Experience</a></li>
+              <li><a href="javascript:;">Other</a></li>
+            </ul>
+          </li>
+          <li class="dropdown dropdown-submenu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">Teacher Training</a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Instructional Design</a></li>
+              <li><a href="javascript:;">Educational Development</a></li>
+              <li><a href="javascript:;">Teaching Tools</a></li>
+              <li><a href="javascript:;">Other</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
-      <li><a href="#">Page 2</a></li>
+      <li><a href="javascript:;">Page 2</a></li>
     </ul>
     <div class="navbar-form navbar-left">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for the software or skills">
+        <input type="text" class="form-control typeahead" placeholder="Search for the software or skills">
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit">
             <i class="glyphicon glyphicon-search"></i>
@@ -48,11 +98,12 @@
 </nav>
   
 <div class="container">
- 
+  
 </div>
 
 <div class="studentProfileWall" *ngIf="this._dataParserService.showUserWall">
     <student-wall></student-wall>
 </div>
+
 
 

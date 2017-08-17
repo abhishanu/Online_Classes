@@ -1,0 +1,11 @@
+<div class="leftArrow">
+    <img  src="{{LeftIcon}}" (click)="slideRight()"/> 
+</div>
+<div id="slider">  
+    <div id="slides" *ngFor="let image of images; let rowIndex=index">
+          <img class="slide" src="{{image}}"  *ngIf="(rowIndex<5)" (click)="clickOnImage($event)" [name]=image (mouseover)="mouseOverImage($event)" (mouseleave)="mouseLaeveImage($event)"/>
+    </div>
+</div>
+<div class="rightArrow">
+    <img  src="{{RightIcon}}" (click)="slideLeft()"/>
+</div>

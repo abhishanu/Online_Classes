@@ -1,0 +1,146 @@
+.bookmarkBox
+{
+    background-color:#fff;
+    border:1px solid #999;
+    cursor: pointer;
+}
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
+
+.offer-pg-cont{
+    width: 100%;
+    overflow-x: auto;
+    margin: 0px;
+}
+span.arrow-left,span.arrow-right{
+    display: block;
+    position: absolute;
+    background-color: #555;
+    top: 40px;
+    color:white;
+    z-index: 2;
+    cursor: pointer;
+}
+span.arrow-left{
+    left: 0px;
+    top:170px;
+}
+span.arrow-right{
+    right: -5px;
+    top:170px;
+}
+span.arrow-left:hover,.offer-pg span.arrow-right:hover{
+    background-color: #333;
+}
+.offer-pg{
+    min-width: 1300px;
+    overflow-x: auto;
+}
+.item-wrapper.offer-con{
+    background-color: #333 !important;
+}
+.offer-con .left-item h4 {
+    color: #fff;
+    font-weight: normal;
+    margin: 0px;
+}
+.offer-con .right-item{
+    float: right;
+    padding: 10px;
+}
+.offer-con .right-item h5{
+    color: #cb9944;
+    margin: 0px;
+    font-size: 14px;
+}
+.offer-pg > .portfolio-item{
+    width: 150px;
+    background-color:#fff;
+    border: 1px solid #999;
+    margin-left:10px;
+    float:left;
+}
+.fixedDiv
+.fixedDiv > .profilePic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+.fixedDiv{
+    display: block;
+    border:1px solid #000; 
+    margin-top: 11%;
+}
+.fixedImg{
+    width:116px;height:100px;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.label-Left
+{
+    text-align: left !important;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #D3D3D3;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.editIcon
+{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-top: 5px !important;
+}
+
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.slider {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
+
+/*studentPic*/

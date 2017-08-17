@@ -13,7 +13,8 @@ export class AppComponent {
  
   public testData:any='';
 
-  constructor(private _dataParserService: DataParserService) {}
+  constructor(private _dataParserService: DataParserService) {
+  }
 
   
   

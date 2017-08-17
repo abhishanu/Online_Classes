@@ -222,5 +222,41 @@ checkEmail(eId)
 
        
          
-    }
+	}
+
+	validateMailId(){
+		var x=$('#email').val();
+		
+		var atpos = x.indexOf("@");
+		var dotpos = x.lastIndexOf(".");
+		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+			return false;
+		}
+		else{
+			return true;
+		}
+
+	}
+
+	 validateMobile(){
+	
+		
+			var contactNo = $('#contact').val();
+			var filter = /^[0-9-+]+$/;
+
+			if(contactNo.length!=10){
+				return false;
+			}
+			if (filter.test(contactNo)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		
+	 }
+
+	 formComplete(){
+		 
+	 }
 }

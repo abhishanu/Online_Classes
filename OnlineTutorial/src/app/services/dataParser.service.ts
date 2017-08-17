@@ -3,6 +3,7 @@ import {Http,URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+
 @Injectable()
 export class DataParserService {
     public testdata;
@@ -32,15 +33,17 @@ export class DataParserService {
     }
     
 
-    SignUp(name,email,phone,pwd){
+    SignUp(name,email,contact,pwd,confirm,type){
          let signUpstatus:any;
          let data = new URLSearchParams();
-         data.append('uname', name);
+         data.append('name', name);
          data.append('email', email);
-         data.append('phone', phone);
+         data.append('contact', contact);
          data.append('pwd', pwd);
+         data.append('confirm', confirm);
+         data.append('type', type);
          return this._http
-            .post('http://localhost/OnlineTutorial/insert.php', data)
+            .post('http://localhost/OnlineTutorial/controllers/controllers.php?action=signUp', data)
            .map(res=>{signUpstatus=res.json();return signUpstatus;}) 
     }  
     
@@ -70,6 +73,19 @@ export class DataParserService {
           return this._http.post('http://localhost/OnlineTutorial/controllers/controllers.php?action=saveStudentProfile',data)
            /*  .post('', data) */
             .map(res=>{signInstatus=res.json();return signInstatus;}) 
+    }
+
+    sendPasswordResetLink(email)
+    {
+        let data = new URLSearchParams();
+        var status:any;
+        data.append('email', email);
+         
+        return this._http.post('http://localhost/OnlineTutorial/controllers/controllers.php?action=forgotPassword',data).map(res=>
+        {
+            status=res.json();
+            return status;
+        });
     }
 
 }

@@ -9,10 +9,11 @@ import {SignIn} from './header/signIn/signIn.component';
 import {ResetPassword} from './header/signIn/reset-password/reset_password.component';
 import {UserMenu} from './header/userMenu/userMenu.component';
 import {StudentWall} from './header/userMenu/studentWall/studentWall.component';
-
+import {ImageSlider} from './common/image-slider/image-slider.component';
 
 import{DataParserService} from './services/dataParser.service';
 import{SessionStorageService} from './services/sessionMaintain.service';
+import{ValidationService} from './services/validation.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -23,14 +24,15 @@ import { AppComponent } from './app.component';
     SignIn,
     ResetPassword,
     UserMenu,
-    StudentWall
+    StudentWall,
+    ImageSlider
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule
   ],
-  providers: [DataParserService,SessionStorageService],
+  providers: [DataParserService,SessionStorageService,ValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

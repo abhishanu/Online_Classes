@@ -23,6 +23,10 @@
     "@angular/router": "^4.0.0",
     "angular-safeguard": "^1.0.2",
     "core-js": "^2.4.1",
+    "ng2-carousel-slider": "^0.1.1",
+    "ng2-carouselamos": "^2.4.4",
+    "ng2-page-slider": "^0.10.1",
+    "ngx-bootstrap": "^1.8.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },

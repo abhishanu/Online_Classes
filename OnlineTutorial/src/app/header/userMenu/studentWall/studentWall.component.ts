@@ -21,7 +21,7 @@ export class StudentWall implements OnInit
   private StudentContact:any="";
   private StudentId:any="";
 
-
+  
     ngOnInit()
     {
         //alert(this._sessionService.getUserEmail());
@@ -37,25 +37,13 @@ export class StudentWall implements OnInit
 
         });
 
-        $(".arrow-left").click(function(){
-            $(".offer-pg-cont").animate({scrollLeft: "-="+100});
-        });
-        $(".arrow-right").click(function(){
-            $(".offer-pg-cont").animate({scrollLeft: "+="+100});
-        });     
-        
-        $('#myCarousel').carousel({
-        interval: 10000
-        })
-        
-        $('#myCarousel').on('slid.bs.carousel', function() {
-            //alert("slid");
-        });
-
+    
+      
 
 
     }
-    constructor(private _dataParserService: DataParserService, private _sessionService: SessionStorageService) {}
+    constructor(private _dataParserService: DataParserService, private _sessionService: SessionStorageService) {
+    }
     
     public saveStudentProfile()
     {
@@ -65,13 +53,20 @@ export class StudentWall implements OnInit
                 //console.log(localData.Name);
                 if(data == "1")
                 {
-                     alert("Save information successfully.");
+                    alert("Save information successfully.");
+
+                    // set session while student info successfully edit
+                    this._sessionService.setUsername(this.Studentname);
+                    this._sessionService.setUserEmail(this.StudentEmail);
+                    this._sessionService.setUserContact(this.StudentContact);
+
+                    location.reload();
                 }
-                if(data == "-1")
+                else if(data == "-1")
                 {
                      alert("Please fill all fields.");
                 }
-                if(data == "-2")
+                else if(data == "-2")
                 {
                      alert("Email already exist.");
                 }

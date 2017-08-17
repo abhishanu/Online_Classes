@@ -14,16 +14,17 @@
                     <div class="form-group">
                         <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
                         <div class="col-sm-3">
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="email">
+                            <input type="email" class="form-control" id="email" title="Enter MailId" placeholder="Enter email" [(ngModel)]="email">
                         </div>
                     </div>
 
                     <div class="form-group">
                     <!--  <label class="control-label col-sm-2" for="pwd">Password:</label> -->
                         <div class="col-sm-3">          
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" [(ngModel)]="pwd">
+                            <input type="password" class="form-control" id="pwd" title="Enter password" placeholder="Enter password" [(ngModel)]="pwd">
                         </div>
                     </div>
+                    <div class="error"></div>
                     <input type="checkbox" [checked]="isSignInChecked" id="checkbox" (click)="rememberMe()"> Remember me
                     <div class="forget-pwd">
                         <a href='javascript:void(0)' (click)="forgetPassword()">Forget password?</a>
